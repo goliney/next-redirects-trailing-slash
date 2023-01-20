@@ -1,4 +1,13 @@
 /** @type {import("next").NextConfig} */
 module.exports = {
-  reactStrictMode: true,
-}
+  trailingSlash: true,
+  async redirects() {
+    return [
+      {
+        source: '/old-prefix/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+    ];
+  },
+};
